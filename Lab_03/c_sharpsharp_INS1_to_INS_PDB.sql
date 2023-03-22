@@ -1,0 +1,1 @@
+CREATE TABLE KVS_table (i number);
