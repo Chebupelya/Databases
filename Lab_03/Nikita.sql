@@ -1,6 +1,6 @@
 --TASK 1, 3
 SELECT name, open_mode FROM v$pdbs;
---alter pluggable database INS_PDB open;
+alter pluggable database INS_PDB open;
 select instance_name, con_id, version from v$instance;
 --TASK 4
 ALTER SESSION SET CONTAINER = INS_PDB;
@@ -56,5 +56,10 @@ ORDER BY owner, object_type, object_name;
 create user c##INS1 identified by pass;
 
 grant create session to c##INS1;
+
+ALTER USER C##INS1 QUOTA 2M ON TS_INS;
+
+select TABLESPACE_NAME from dba_tablespaces;
+
 
 select *from v$session;
